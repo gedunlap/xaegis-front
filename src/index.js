@@ -14,7 +14,7 @@ ReactDOM.render(
   // Pass app component into Route to give access to rp
   <Router>
     <React.StrictMode>
-      <Route path='/' component={App} />
+      <Route path="/" component={App} />
     </React.StrictMode>
   </Router>,
   document.getElementById('root')
