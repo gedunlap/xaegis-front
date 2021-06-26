@@ -3,6 +3,8 @@ import SinglePost from "./pages/SinglePost";
 import Form from "./pages/Form";
 import Nav from "./components/Nav"
 import Auth from "./pages/Auth";
+import Home from "./pages/Home";
+
 
 import React, { useState, useEffect } from "react";
 
@@ -25,7 +27,13 @@ function App(props) {
         <Route 
           exact
           path="/"
-          render={(rp) => <AllPosts {...rp} posts={posts} />} 
+          render={(rp) => <Home {...rp} posts={posts} />} 
+        />
+        <Route
+          path="/posts"
+          render={(rp) => (
+            <AllPosts {...rp} posts={posts} />
+          )}
         />
         <Route
           path="/post/:id"
