@@ -1,25 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import AllPosts from "./pages/AllPosts";
+import SinglePost from "./pages/SinglePost";
+import Form from "./pages/Form";
 
-function App() {
+import React, { useState, useEffect } from "react";
+
+import { Route, Switch } from "react-router-dom";
+
+
+
+function App(props) {
+
+  const url = "https://xaegis-back-gd.herokuapp.com/posts/";
+
+  const [posts, setPosts] = useState([]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <div className="row twelve columns" style={{textAlign: "center", backgroundColor: "skyblue"}}>
+        <h1>XAEGIS</h1>
+      </div>
+      <Switch>
+        <Route 
+          exact
+          path="/"
+          render={(rp) => <AllPosts {...rp} posts={posts} />} 
+        />
+      </Switch>
     </div>
-  );
+  )
+  
 }
 
 export default App;
