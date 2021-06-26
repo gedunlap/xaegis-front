@@ -1,6 +1,8 @@
 import AllPosts from "./pages/AllPosts";
 import SinglePost from "./pages/SinglePost";
 import Form from "./pages/Form";
+import Nav from "./components/Nav"
+import Auth from "./pages/Auth";
 
 import React, { useState, useEffect } from "react";
 
@@ -10,12 +12,12 @@ import { Route, Switch } from "react-router-dom";
 
 function App(props) {
 
-  const url = "https://xaegis-back-gd.herokuapp.com/posts/";
 
   const [posts, setPosts] = useState([]);
 
   return (
     <div>
+      <Nav />
       <div className="row twelve columns" style={{textAlign: "center", backgroundColor: "skyblue"}}>
         <h1>XAEGIS</h1>
       </div>
@@ -38,7 +40,15 @@ function App(props) {
         <Route 
           path="/edit"
           render={(rp) => <Form {...rp} posts={posts} />} 
-        /> 
+        />
+        <Route
+          path="/auth/:form"
+          render={(rp) => <Auth {...rp} />}
+        />
+        <Route
+          path="/auth/:form"
+          render={(rp) => <Auth {...rp} />}
+        />
       </Switch>
     </div>
   )

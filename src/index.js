@@ -1,22 +1,23 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
 import App from './App';
 // Import skeleton & normalize
 import './skeleton.css'
 import './normalize.css'
+import './index.css';
 // Import BrowserRouter component as Router
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
 import reportWebVitals from './reportWebVitals';
+import {AppState} from "./AppState"
 
 ReactDOM.render(
   // Wrap App inside router
   // Pass app component into Route to give access to rp
-  <Router>
-    <React.StrictMode>
-      <Route path="/" component={App} />
-    </React.StrictMode>
-  </Router>,
+  <AppState>
+    <Router>
+        <App />
+    </Router>
+  </AppState>,
   document.getElementById('root')
 );
 
