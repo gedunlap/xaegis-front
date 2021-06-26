@@ -25,6 +25,20 @@ function App(props) {
           path="/"
           render={(rp) => <AllPosts {...rp} posts={posts} />} 
         />
+        <Route
+          path="/post/:id"
+          render={(rp) => (
+            <SinglePost {...rp} posts={posts} />
+          )}
+        />
+        <Route 
+          path="/new"
+          render={(rp) => <Form {...rp} posts={posts} />} 
+        />
+        <Route 
+          path="/edit"
+          render={(rp) => <Form {...rp} posts={posts} />} 
+        /> 
       </Switch>
     </div>
   )
