@@ -6,7 +6,7 @@ import './skeleton.css'
 import './normalize.css'
 import './index.css';
 // Import BrowserRouter component as Router
-import { BrowserRouter as Router } from 'react-router-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import reportWebVitals from './reportWebVitals';
 import {AppState} from "./AppState"
 
@@ -15,7 +15,7 @@ ReactDOM.render(
   // Pass app component into Route to give access to rp
   <AppState>
     <Router>
-        <App />
+        <Route path="/" component={App} />
     </Router>
   </AppState>,
   document.getElementById('root')

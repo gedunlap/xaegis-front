@@ -1,14 +1,15 @@
+import React, { useState, useEffect } from "react";
+import { Route, Switch } from "react-router-dom";
 import AllPosts from "./pages/AllPosts";
 import SinglePost from "./pages/SinglePost";
 import Form from "./pages/Form";
 import Nav from "./components/Nav"
 import Auth from "./pages/Auth";
 import Home from "./pages/Home";
+import {useAppState} from "./AppState.js";
 
 
-import React, { useState, useEffect } from "react";
 
-import { Route, Switch } from "react-router-dom";
 
 
 
@@ -17,9 +18,21 @@ function App(props) {
 
   const [posts, setPosts] = useState([]);
 
+  const {state, dispatch} = useAppState()
+
+  React.useState (() => {
+    const auth = JSON.parse(window.localStorage.getItem("auth"))
+    if (auth) {
+      dispatch({ type: auth, payload: auth })
+      props.history.push("/posts")
+    } else {
+      props.history.push('/')
+    }
+  }, [])
+
   return (
     <div>
-      <Nav />
+      <Route path="/" component={Nav} />
       <div className="row twelve columns" style={{textAlign: "center", backgroundColor: "skyblue"}}>
         <h1>XAEGIS</h1>
       </div>

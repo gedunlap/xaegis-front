@@ -44,9 +44,9 @@ const reducer = (state, action) => {
     //   newState = { ...state, edit: action.payload };
     //   return newState;
     //   break;
-    // default:
-    //   return state;
-    //   break;
+    default:
+      return state;
+      break;
   }
 };
 
